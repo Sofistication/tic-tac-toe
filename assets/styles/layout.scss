@@ -1,0 +1,16 @@
+$tile-side: 100px;
+$board-side: (3 * $tile-side) + 20px;
+
+.game-board {
+  border: 3px solid black;
+  height: $board-side;
+  width: $board-side;
+}
+
+.game-tile {
+  border: 2px solid black;
+  box-sizing: border-box;
+  float: left;
+  height: $tile-side;
+  width: $tile-side;
+}
