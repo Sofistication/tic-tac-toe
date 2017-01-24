@@ -1,15 +1,16 @@
 'use strict';
 
-const checkHorizontalStates = function (gameBoard/*, player */) {
+const checkHorizontalStates = function (gameBoard, player) {
   // check for horizontal win states
   // horizontal win states are {0,1,2}, {3,4,5}, and {6,7,8}
 
-  //create array for each row
-  let firstRow = gameBoard.slice(0,3);
-  let secondRow = gameBoard.slice(3,6);
-  let thirdRow = gameBoard.slice(6);
+  //create array for each row and check for win
+  let firstRow = gameBoard.slice(0, 3).every((e) => e === player.piece);
+  let secondRow = gameBoard.slice(3, 6).every((e) => e === player.piece);
+  let thirdRow = gameBoard.slice(6).every((e) => e === player.piece);
 
-  // check all row arrays for a match
+  // return true if any row is a win
+  return (firstRow || secondRow || thirdRow);
 };
 
 const checkVerticalStates = function (/* gameBoard, player */) {
@@ -22,7 +23,7 @@ const checkDiagonalStates = function (/* gameBoard, player */) {
   // diagonal win states are {0,4,8} and {2,4,6}
 };
 
-module.export = {
+module.exports = {
   checkHorizontalStates,
   checkVerticalStates,
   checkDiagonalStates,
