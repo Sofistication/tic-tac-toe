@@ -13,9 +13,23 @@ const checkHorizontalStates = function (gameBoard, player) {
   return (firstRow || secondRow || thirdRow);
 };
 
-const checkVerticalStates = function (/* gameBoard, player */) {
+const checkVerticalStates = function (gameBoard/*, player */) {
   // check for vertical win states
   // vertical win states are {0,3,6}, {1,4,7}, and {2,5,8}
+
+  let firstColumn = [];
+  let secondColumn = [];
+  let thirdColumn = [];
+
+  for (let i = 0; i < gameBoard.length; i++) {
+    if ((gameBoard[i] % 3) === 0) {
+      firstColumn.push(gameBoard[i]);
+    } else if ((gameBoard[i] % 3) === 1) {
+      secondColumn.push(gameBoard[i]);
+    } else {
+      thirdColumn.push(gameBoard[i]);
+    }
+  }
 };
 
 const checkDiagonalStates = function (/* gameBoard, player */) {
