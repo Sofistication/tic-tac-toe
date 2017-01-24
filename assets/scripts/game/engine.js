@@ -13,4 +13,9 @@ const checkWinStates = function (gameBoard, player) {
   states.checkHorizontalStates(gameBoard, player);
   states.checkVerticalStates(gameBoard, player);
   states.checkDiagonalStates(gameBoard, player);
-}
+};
+
+module.exports = {
+  gameBoard,
+  checkWinStates,
+};
