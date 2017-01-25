@@ -34,8 +34,14 @@ const checkVerticalStates = function (gameBoard, player) {
     }
   }
 
+  // check for wins in each column
+  // this could all be done in the return but this reads easier
+  let first = firstColumn.every((e) => e === player.piece);
+  let second = secondColumn.every((e) => e === player.piece);
+  let third = thirdColumn.every((e) => e === player.piece);
+
   // return true if any column is a win
-  return (firstColumn.every((e) => e === player.piece) || secondColumn.every((e) => e === player.piece) || thirdColumn.every((e) => e === player.piece));
+  return (first || second || third);
 };
 
 const checkDiagonalStates = function (gameBoard, player) {
@@ -48,6 +54,7 @@ const checkDiagonalStates = function (gameBoard, player) {
   let secondDiagonal = [];
 
   // iterate over game board and fill column arrays
+  // TODO this is hardcoded and bad and there's probably a better way
   for (let i = 0; i < gameBoard.length; i++) {
     if (i === 0 || i === 4 || i === 8) {
       firstDiagonal.push(gameBoard[i]);
@@ -57,8 +64,13 @@ const checkDiagonalStates = function (gameBoard, player) {
     }
   }
 
+  // check for wins in each diagonal
+  // this could all be done in the return but this reads easier
+  let first = firstDiagonal.every((e) => e === player.piece);
+  let second = secondDiagonal.every((e) => e === player.piece);
+
   // return true if any column is a win
-  return (firstDiagonal.every((e) => e === player.piece) || secondDiagonal.every((e) => e === player.piece));
+  return (first || second);
 };
 
 module.exports = {
