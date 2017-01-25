@@ -3,6 +3,17 @@
 const states = require('./states');
 
 // TODO newGame() should return an object containing winner and loser
+// TODO create makeMove() to handle moves
+
+const makeMove = function (gameBoard, moveSpot, piece) {
+  if (gameBoard[moveSpot] === '') {
+    gameBoard[moveSpot] = piece;
+    return true;
+  } else {
+    console.log('Invalid move!');
+    return false
+  }
+ };
 
 const newGame = function (playerOne, playerTwo) {
 
@@ -25,6 +36,8 @@ const newGame = function (playerOne, playerTwo) {
 
     console.log(gameBoard);
     console.log(`${currentPlayer.name}, it is your turn! Pick a square to play.`);
+
+    // move loop, create tile handlers here
 
     //check for winner
     if (states.winStateCheck(gameBoard, currentPlayer)) {
