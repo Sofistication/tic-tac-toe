@@ -73,8 +73,17 @@ const checkDiagonalStates = function (gameBoard, player) {
   return (first || second);
 };
 
+// single function that can be called to check all win states
+const winStateCheck = function (gameBoard, player) {
+  // this could all be done in the return but this reads easier
+  let horizontal = checkHorizontalStates(gameBoard, player);
+  let vertical = checkVerticalStates(gameBoard, player);
+  let diagonal = checkDiagonalStates(gameBoard, player);
+
+  // return true if any state is a win
+  return (horizontal || vertical || diagonal);
+};
+
 module.exports = {
-  checkHorizontalStates,
-  checkVerticalStates,
-  checkDiagonalStates,
+  winStateCheck,
 };
