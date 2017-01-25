@@ -8,12 +8,16 @@ const states = require('./states');
 // test boards
 // no entries
 let board1 = ['', '', '', '', '', '', '', '', ''];
+
 // cat's game
 let board2 = ['X', 'X', 'O', 'O', 'O', 'X', 'X', 'X', 'O'];
+
 // X wins
 let board3 = ['X', 'O', '', '', 'X', 'O', '', '', 'X'];
+
 // O wins
 let board4 = ['O', 'X', '', 'O', 'X', '', 'O', '', 'X'];
+
 // X wins
 let board5 = ['', '', 'X', 'O', '', 'X', '', 'O', 'X'];
 
