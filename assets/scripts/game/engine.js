@@ -22,6 +22,7 @@ const newGame = function (/*playerOne, playerTwo*/) {
       currentPlayer = playerTwo;
     }
 
+    console.log(gameBoard)
     console.log(`${currentPlayer.name}, it is your turn! Pick a square to play.`)
 
 
