@@ -84,6 +84,11 @@ const winStateCheck = function (gameBoard, player) {
   return (horizontal || vertical || diagonal);
 };
 
+const tieStateCheck = function (gameBoard) {
+  return gameBoard.every((e) => e !== '');
+};
+
 module.exports = {
   winStateCheck,
+  tieStateCheck,
 };
