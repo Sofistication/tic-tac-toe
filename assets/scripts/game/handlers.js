@@ -4,8 +4,11 @@ const engine = require('../game/engine');
 const gameBoard = ['', '', '', '', '', '', '', '', ''];
 const game = new engine.Game(gameBoard);
 
-const drawBoard = function () {
+const initGame = function () {
+  $('#gameBoard').on('click', game.makeMove);
+};
 
+const drawBoard = function () {
   $('#board-container').html('');
 
   $('#board-container').prepend('<div class="game-board" id="gameBoard"></div>');
@@ -16,7 +19,7 @@ const drawBoard = function () {
   }
 
   $('#newGame').hide();
-  engine.initGame();
+  initGame();
 };
 
 module.exports = {
