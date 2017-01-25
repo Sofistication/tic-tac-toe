@@ -1,5 +1,10 @@
 $tile-side: 100px;
 $board-side: (3 * $tile-side) + 20px;
+$chat-width: 25%;
+
+body {
+  padding: 0;
+}
 
 .game-board {
   border: 3px solid black;
@@ -13,4 +18,16 @@ $board-side: (3 * $tile-side) + 20px;
   float: left;
   height: $tile-side;
   width: $tile-side;
+}
+
+header {
+  border-width: 0 0 3px;
+  text-align: center;
+}
+
+.chat {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin: 0;
+  max-width: $chat-width;
 }
