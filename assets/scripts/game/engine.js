@@ -1,5 +1,7 @@
 'use strict';
 
+//TODO house an actual engine in this file, not just tests!
+
 const states = require('./states');
 
 // create empty array to serve as game board
