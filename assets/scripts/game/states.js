@@ -1,19 +1,19 @@
 'use strict';
 
-const checkHorizontalStates = function (gameBoard, player) {
+const checkHorizontalStates = function (gameBoard, piece) {
   // check for horizontal win states
   // horizontal win states are {0,1,2}, {3,4,5}, and {6,7,8}
 
   //create array for each row and check for win
-  let firstRow = gameBoard.slice(0, 3).every((e) => e === player.piece);
-  let secondRow = gameBoard.slice(3, 6).every((e) => e === player.piece);
-  let thirdRow = gameBoard.slice(6).every((e) => e === player.piece);
+  let firstRow = gameBoard.slice(0, 3).every((e) => e === piece);
+  let secondRow = gameBoard.slice(3, 6).every((e) => e === piece);
+  let thirdRow = gameBoard.slice(6).every((e) => e === piece);
 
   // return true if any row is a win
   return (firstRow || secondRow || thirdRow);
 };
 
-const checkVerticalStates = function (gameBoard, player) {
+const checkVerticalStates = function (gameBoard, piece) {
   // check for vertical win states
   // vertical win states are {0,3,6}, {1,4,7}, and {2,5,8}
 
@@ -36,15 +36,15 @@ const checkVerticalStates = function (gameBoard, player) {
 
   // check for wins in each column
   // this could all be done in the return but this reads easier
-  let first = firstColumn.every((e) => e === player.piece);
-  let second = secondColumn.every((e) => e === player.piece);
-  let third = thirdColumn.every((e) => e === player.piece);
+  let first = firstColumn.every((e) => e === piece);
+  let second = secondColumn.every((e) => e === piece);
+  let third = thirdColumn.every((e) => e === piece);
 
   // return true if any column is a win
   return (first || second || third);
 };
 
-const checkDiagonalStates = function (gameBoard, player) {
+const checkDiagonalStates = function (gameBoard, piece) {
   // check for diagonal win states
   // diagonal win states are {0,4,8} and {2,4,6}
 
@@ -66,8 +66,8 @@ const checkDiagonalStates = function (gameBoard, player) {
 
   // check for wins in each diagonal
   // this could all be done in the return but this reads easier
-  let first = firstDiagonal.every((e) => e === player.piece);
-  let second = secondDiagonal.every((e) => e === player.piece);
+  let first = firstDiagonal.every((e) => e === piece);
+  let second = secondDiagonal.every((e) => e === piece);
 
   // return true if any column is a win
   return (first || second);

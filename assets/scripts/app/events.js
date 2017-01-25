@@ -1,11 +1,12 @@
-'use strict'
+'use strict';
 
-const ui = require('./ui');
+const handlers = require('../game/handlers');
 
 const newGame = function () {
+  // console.log(event);
   // event.preventDefault();
 
-  ui.drawBoard();
+  handlers.drawBoard();
 };
 
 module.exports = {
