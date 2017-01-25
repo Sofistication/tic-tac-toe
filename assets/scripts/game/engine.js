@@ -11,7 +11,7 @@ const makeMove = function (gameBoard, moveSpot, piece) {
     return true;
   } else {
     console.log('Invalid move!');
-    return false
+    return false;
   }
  };
 
