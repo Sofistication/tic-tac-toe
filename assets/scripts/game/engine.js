@@ -1,6 +1,7 @@
 'use strict';
 
 const states = require('./states');
+const ui = require('../app/ui');
 
 // TODO newGame() should return an object containing winner and loser
 // TODO create makeMove() to handle moves
@@ -42,29 +43,35 @@ Game.prototype.endGame = function () {
 };
 
 Game.prototype.makeMove = function (event) {
-  // console.log(event);
-  // console.log(this);
+
   let index = event.target.id;
-  // console.log(this);
-  // console.log(event.target);
+
+  //check for valid move
   if (this.board[index] === '') {
     this.board[index] = this.currentPlayer;
     $(event.target).append(this.currentPlayer);
 
+    // display move in chat log
+    ui.displayAction('win', this.currentPlayer, index);
     console.log(index);
+
+    // after every valid move, check for win or tie
     let win = this.checkWinState(this.board, this.currentPlayer);
     if (win) {
       console.log(`${this.currentPlayer} wins!`);
+      ui.displayAction('win', this.currentPlayer)
       this.endGame();
     } else if (this.checkTieState(this.board)) {
       console.log('Cat\'s Game!');
+      ui.displayAction('tie')
       this.endGame();
-    } else {
+    } else { //if game is still going, change turn
       this.changeTurn(this.currentPlayer);
       // console.log(this.currentPlayer);
     }
   } else {
     console.log('Invalid move!');
+    ui.displayAction('invalid');
   }
  };
 
