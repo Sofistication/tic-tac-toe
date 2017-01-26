@@ -22,7 +22,7 @@ const drawBoard = function () {
     board.append('<div class="game-tile" id="' + i + '"></div>');
   }
 
-  $('#newGame').hide();
+  $('#mainMenu').hide();
   initGame();
 };
 

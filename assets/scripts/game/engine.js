@@ -40,7 +40,7 @@ Game.prototype.endGame = function () {
   this.currentPlayer = 'X';
 
   $('#gameBoard').off('click');
-  $('#newGame').show();
+  $('#mainMenu').show();
 };
 
 Game.prototype.makeMove = function (event) {
