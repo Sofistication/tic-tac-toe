@@ -23,6 +23,10 @@ const onSignIn = function (event) {
       store.user = response.user;
       return store.user;
     })
+    .then(() => {
+      $('.initial-bar').hide();
+      $('.second-bar').show();
+    })
     .then(ui.success)
     .catch(ui.failure)
     ;
@@ -43,6 +47,10 @@ const onSignOut = function (event) {
     .then(() => {
       delete store.user;
       return store;
+    })
+    .then(() => {
+      $('.second-bar').hide();
+      $('.initial-bar').show();
     })
     .then(ui.success)
     .catch(ui.failure)
