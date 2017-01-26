@@ -73,22 +73,23 @@ const checkDiagonalStates = function (gameBoard, piece) {
   return (first || second);
 };
 
-// single function that can be called to check all win states
-const winStateCheck = function (gameBoard, player) {
-  // this could all be done in the return but this reads easier
-  let horizontal = checkHorizontalStates(gameBoard, player);
-  let vertical = checkVerticalStates(gameBoard, player);
-  let diagonal = checkDiagonalStates(gameBoard, player);
-
-  // return true if any state is a win
-  return (horizontal || vertical || diagonal);
-};
-
-const tieStateCheck = function (gameBoard) {
-  return gameBoard.every((e) => e !== '');
-};
+// // single function that can be called to check all win states
+// const winStateCheck = function (gameBoard, player) {
+//   // this could all be done in the return but this reads easier
+//   let horizontal = checkHorizontalStates(gameBoard, player);
+//   let vertical = checkVerticalStates(gameBoard, player);
+//   let diagonal = checkDiagonalStates(gameBoard, player);
+//
+//   // return true if any state is a win
+//   return (horizontal || vertical || diagonal);
+// };
+//
+// const tieStateCheck = function (gameBoard) {
+//   return gameBoard.every((e) => e !== '');
+// };
 
 module.exports = {
-  winStateCheck,
-  tieStateCheck,
+  checkHorizontalStates,
+  checkVerticalStates,
+  checkDiagonalStates,
 };
