@@ -39,6 +39,7 @@ Game.prototype.endGame = function () {
   this.board = ['', '', '', '', '', '', '', '', ''];
   this.currentPlayer = 'X';
 
+  $('#gameBoard').off('click');
   $('#newGame').show();
 };
 
