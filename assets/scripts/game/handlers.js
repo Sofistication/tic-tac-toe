@@ -13,6 +13,7 @@ const initGame = function () {
 
 const drawBoard = function () {
   // $('#board-container').html('');
+  $('#gameBoard').remove();
 
   $('#board-container').prepend('<div class="game-board" id="gameBoard"></div>');
   const board = $('#gameBoard');
