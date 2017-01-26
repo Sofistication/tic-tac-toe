@@ -2,11 +2,18 @@
 
 const config = require('../config.js');
 
-const index = function () {
-  return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'GET',
-  });
+const index = function (over) {
+  if (over) {
+    return $.ajax({
+      url: config.apiOrigin + '/games?=over',
+      method: 'GET',
+    });
+  } else {
+    return $.ajax({
+      url: config.apiOrigin + '/games',
+      method: 'GET',
+    });
+  }
 };
 
 const show = function (id) {
