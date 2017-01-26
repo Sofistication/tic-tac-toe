@@ -4,8 +4,11 @@ const engine = require('../game/engine');
 const gameBoard = ['', '', '', '', '', '', '', '', ''];
 const game = new engine.Game(gameBoard);
 
+// need to bind `this` for certain methods
+const bindMakeMove = game.makeMove.bind(game);
+
 const initGame = function () {
-  $('#gameBoard').on('click', game.makeMove);
+  $('#gameBoard').on('click', bindMakeMove);
 };
 
 const drawBoard = function () {

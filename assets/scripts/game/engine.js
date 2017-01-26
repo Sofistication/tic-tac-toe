@@ -10,31 +10,29 @@ function Game (board) {
   this.currentPlayer = 'X';
 }
 
-Game.prototype.checkWinState = function (board, piece) {
+Game.prototype.checkWinState = function () {
   // this could all be done in the return but this reads easier
-  let horizontal = states.checkHorizontalStates(gameBoard, player);
-  let vertical = states.checkVerticalStates(gameBoard, player);
-  let diagonal = states.checkDiagonalStates(gameBoard, player);
+  let horizontal = states.checkHorizontalStates(this.board, this.piece);
+  let vertical = states.checkVerticalStates(this.board, this.piece);
+  let diagonal = states.checkDiagonalStates(this.board, this.piece);
 
   // return true if any state is a win
   return (horizontal || vertical || diagonal);
 };
 
 Game.prototype.makeMove = function (event) {
-  console.log(event.target.id);
+  // console.log(event);
+  // console.log(this);
+  let index = event.target.id;
+  // console.log(this);
   // console.log(event.target);
-  // if (this.board[moveSpot] === '') {
-  //   this.board[moveSpot] = this.piece;
-  //   return true;
-  // } else {
-  //   console.log('Invalid move!');
-  //   return false;
-  // }
+  if (this.board[index] === '') {
+    this.board[index] = this.piece;
+  } else {
+    console.log('Invalid move!');
+  }
  };
 
- const initGame = function () {
-   $('#gameBoard').on('click', game.makeMove);
- };
 
 // const newGame = function (playerOne, playerTwo) {
 //
@@ -75,5 +73,4 @@ Game.prototype.makeMove = function (event) {
 
 module.exports = {
   Game,
-  initGame,
 };
