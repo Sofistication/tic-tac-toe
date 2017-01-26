@@ -1,9 +1,9 @@
 'use strict';
 
 // function that can display a record of actions to the console
-// valid actions are: win, tie, play, invalid
+// valid actions are: win, tie, play, invalid, new
 const displayAction = function (action, player, tile) {
-  console.log('called display function');
+
   let html = '<p class="game-message">';
   switch (action) {
     case 'win':
@@ -18,13 +18,15 @@ const displayAction = function (action, player, tile) {
     case 'invalid':
       html += 'Invalid move!';
       break;
+    case 'new':
+      html += 'Starting new game!';
+      break;
     default:
   }
 
   html += '</p>';
 
   $('#chat').append(html);
-  console.log('Should have displayed');
 };
 
 module.exports = {

@@ -52,7 +52,7 @@ Game.prototype.makeMove = function (event) {
     $(event.target).append(this.currentPlayer);
 
     // display move in chat log
-    ui.displayAction('win', this.currentPlayer, index);
+    ui.displayAction('play', this.currentPlayer, index);
     console.log(index);
 
     // after every valid move, check for win or tie
