@@ -15,10 +15,88 @@
 
       <header>
         <div class="row">
-          <h1>Tic Tac Toe</h1>
+          <h1>Tiny Rick Tac Toe</h1>
         </div>
         <div class="row">
-          <form id="sign-up">
+          <div class="col-xs-6" id="signIn">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signInModal">
+              Sign In!
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form id="sign-in">
+                      <fieldset>
+                        <label>
+                          Email
+                          <input type="text" name="credentials[email]">
+                        </label>
+                        <label>
+                          Password
+                          <input type="password" name="credentials[password]">
+                        </label>
+                        <button type="submit" class="btn btn-primary">Sign In!</button>
+                      </fieldset>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
+              Sign Up!
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form id="sign-up">
+                      <fieldset>
+                        <label>
+                          Email
+                          <input type="text" name="credentials[email]">
+                        </label>
+                        <label>
+                          Password
+                          <input type="password" name="credentials[password]">
+                        </label>
+                        <label>
+                          Password Confirmation
+                          <input type="password" name="credentials[password_confirmation]">
+                        </label>
+                        <input type="submit" name="submit" value="Sign up!">
+                      </fieldset>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <form id="sign-up">
             <fieldset>
               <legend>Sign up!</legend>
               <label>
@@ -67,7 +145,7 @@
             </fieldset>
           </form>
 
-          <form id="sign-out">
+          <form id="sign-out"> -->
             <fieldset>
               <legend>Sign Out!</legend>
               <input type="submit" name="submit" value="Sign out!">
@@ -76,71 +154,15 @@
         </div>
       </header>
       <div class="row">
-        <aside class="col-md-3" id="chat">
+        <aside class="col-xs-3" id="chat">
           placeholder content
         </aside>
 
-        <div class="col-md-9" id="main-section">
+        <div class="col-xs-9" id="main-section">
           <div id="board-container"></div>
           <button type="button" class="btn btn-default" id="newGame">New Game!</button>
         </div>
       </div>
 
-      <!-- Copied in from api-token-auth repo for later -->
-      <!-- <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <label>
-            Email
-            <input type="text" name="credentials[email]">
-          </label>
-          <label>
-            Password
-            <input type="password" name="credentials[password]">
-          </label>
-          <label>
-            Password Confirmation
-            <input type="password" name="credentials[password_confirmation]">
-          </label>
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
-
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <label>
-            Email
-            <input type="text" name="credentials[email]">
-          </label>
-          <label>
-            Password
-            <input type="password" name="credentials[password]">
-          </label>
-          <input type="submit" name="submit" value="Sign in!">
-        </fieldset>
-      </form>
-
-      <form id="change-password">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <label>
-            Current Password
-            <input type="password" name="passwords[old]">
-          </label>
-          <label>
-            New Password
-            <input type="password" name="passwords[new]">
-          </label>
-          <input type="submit" name="submit" value="Sign in!">
-        </fieldset>
-      </form>
-
-      <form id="sign-out">
-        <fieldset>
-          <legend>Sign Out!</legend>
-          <input type="submit" name="submit" value="Sign out!">
-        </fieldset>
-      </form> -->
     </body>
 </html>
