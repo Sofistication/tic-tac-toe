@@ -34,6 +34,14 @@ Game.prototype.checkTieState = function (board) {
   return board.every((e) => e !== '');
 };
 
+Game.prototype.resetGame = function () {
+  this.board = ['', '', '', '', '', '', '', '', ''];
+  this.currentPlayer = 'X';
+
+  $('#gameBoard').remove();
+  $('#newGame').show();
+};
+
 Game.prototype.makeMove = function (event) {
   // console.log(event);
   // console.log(this);
@@ -48,8 +56,10 @@ Game.prototype.makeMove = function (event) {
     let win = this.checkWinState(this.board, this.currentPlayer);
     if (win) {
       console.log(`${this.currentPlayer} wins!`);
+      this.resetGame();
     } else if (this.checkTieState(this.board)) {
-      console.log('Cat\'s Game!')
+      console.log('Cat\'s Game!');
+      this.resetGame();
     } else {
       this.changeTurn(this.currentPlayer);
       // console.log(this.currentPlayer);
