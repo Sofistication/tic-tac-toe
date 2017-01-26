@@ -30,6 +30,10 @@ Game.prototype.checkWinState = function (board, piece) {
   return (horizontal || vertical || diagonal);
 };
 
+Game.prototype.checkTieState = function (board) {
+  return board.every((e) => e !== '');
+};
+
 Game.prototype.makeMove = function (event) {
   // console.log(event);
   // console.log(this);
@@ -44,6 +48,8 @@ Game.prototype.makeMove = function (event) {
     let win = this.checkWinState(this.board, this.currentPlayer);
     if (win) {
       console.log(`${this.currentPlayer} wins!`);
+    } else if (this.checkTieState(this.board)) {
+      console.log('Cat\'s Game!')
     } else {
       this.changeTurn(this.currentPlayer);
       // console.log(this.currentPlayer);
