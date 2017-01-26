@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO get cool switch thing to work
+
 const getFormFields = require(`../../../lib/get-form-fields`);
 
 const api = require('./api');
@@ -23,11 +25,11 @@ const onSignIn = function (event) {
       store.user = response.user;
       return store.user;
     })
-    .then(() => {
-      $('.initial-bar').hide();
-      $('.second-bar').show();
-    })
     .then(ui.success)
+    // .then(() => {
+    //   $('.initial-bar').hide();
+    //   $('.second-bar').show();
+    // })
     .catch(ui.failure)
     ;
 };
@@ -48,11 +50,11 @@ const onSignOut = function (event) {
       delete store.user;
       return store;
     })
-    .then(() => {
-      $('.second-bar').hide();
-      $('.initial-bar').show();
-    })
     .then(ui.success)
+    // .then(() => {
+    //   $('.second-bar').hide();
+    //   $('.initial-bar').show();
+    // })
     .catch(ui.failure)
     ;
 };
