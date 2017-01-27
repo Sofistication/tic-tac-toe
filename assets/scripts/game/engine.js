@@ -2,6 +2,8 @@
 
 const states = require('./states');
 const ui = require('../app/ui');
+const api = require('../game-api/api');
+const store = require('../store');
 
 // TODO newGame() should return an object containing winner and loser
 // TODO create makeMove() to handle moves
@@ -60,11 +62,11 @@ Game.prototype.makeMove = function (event) {
     let win = this.checkWinState(this.board, this.currentPlayer);
     if (win) {
       console.log(`${this.currentPlayer} wins!`);
-      ui.displayAction('win', this.currentPlayer)
+      ui.displayAction('win', this.currentPlayer);
       this.endGame();
     } else if (this.checkTieState(this.board)) {
       console.log('Cat\'s Game!');
-      ui.displayAction('tie')
+      ui.displayAction('tie');
       this.endGame();
     } else { //if game is still going, change turn
       this.changeTurn(this.currentPlayer);

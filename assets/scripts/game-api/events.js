@@ -2,7 +2,7 @@
 
 const api = require('./api');
 const ui = require('./ui');
-const store = require('../store')
+const store = require('../store');
 
 // attach getFormFields globally
 
@@ -46,6 +46,8 @@ const onCreateGame = function (event) {
   api.create()
     .then((response) => {
       store.game = response.game;
+      console.log('here');
+      debugger;
       return store.game;
     })
     .then(ui.onCreateSuccess)
