@@ -23,7 +23,7 @@ const drawBoard = function (game) {
   const board = $('#gameBoard');
 
   for (let i = 0; i < game.board.length; i++) {
-    board.append('<div class="game-tile" id="' + i + '">"' + game.board[i] + '"</div>');
+    board.append('<div class="game-tile" id="' + i + '">' + game.board[i] + '</div>');
   }
 
   $('#mainMenu').hide();
