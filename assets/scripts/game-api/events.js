@@ -31,6 +31,15 @@ const onGetGames = function (event) {
 
 };
 
+const onGetStats = function (event) {
+  event.preventDefault();
+  console.log('here');
+
+  api.index()
+    .then(ui.onStatSuccess)
+    .catch(ui.onError);
+};
+
 // const onUpdateGame = function (event) {
 //   event.preventDefault();
 //

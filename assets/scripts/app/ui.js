@@ -49,6 +49,19 @@ const displayResult = function (data) {
 
   html += '</p>';
 
+  $('#chat').append(html);
+};
+
+const displayStats = function (data) {
+  let html = '<p class="search-result">Stats: You have played ' + data.games.length + ' games, of which ';
+  let count = 0;
+  for (let i = 0; i < data.games.length; i++) {
+    if (data.games[i].over) {
+      count++;
+    }
+  }
+  html += count + ' were finished.';
+
   $('chat').append(html);
 };
 
@@ -56,4 +69,5 @@ module.exports = {
   displayAction,
   displayResults,
   displayResult,
+  displayStats,
 };
