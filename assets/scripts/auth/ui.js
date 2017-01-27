@@ -2,7 +2,13 @@
 
 // const utils = require('../utils.js');
 
-const success = (data) => {
+const signInSuccess = (data) => {
+  $('#signInModal').modal('hide');
+  console.log(data);
+};
+
+const signUpSuccess = (data) => {
+  $('#signUpModal').modal('hide');
   console.log(data);
 };
 
@@ -12,5 +18,6 @@ const failure = (error) => {
 
 module.exports = {
   failure,
-  success,
+  signInSuccess,
+  signUpSuccess,
 };
