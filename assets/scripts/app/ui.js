@@ -62,7 +62,7 @@ const displayStats = function (data) {
   }
   html += count + ' were finished.';
 
-  $('chat').append(html);
+  $('#chat').append(html);
 };
 
 module.exports = {

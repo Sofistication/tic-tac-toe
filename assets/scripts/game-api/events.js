@@ -16,7 +16,6 @@ const store = require('../store');
 // button is clicked
 const onGetGames = function (event) {
   event.preventDefault();
-  console.log('here');
 
   let gameId = $('#game-id').val();
   if (gameId.length === 0) {
@@ -33,7 +32,6 @@ const onGetGames = function (event) {
 
 const onGetStats = function (event) {
   event.preventDefault();
-  console.log('here');
 
   api.index()
     .then(ui.onStatSuccess)
@@ -62,5 +60,6 @@ const onCreateGame = function (event) {
 
 module.exports = {
   onGetGames,
+  onGetStats,
   onCreateGame,
 };

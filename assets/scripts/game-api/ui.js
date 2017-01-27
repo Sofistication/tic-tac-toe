@@ -18,6 +18,11 @@ const onSuccess = function (data) {
   utils.clearInput('#game-search');
 };
 
+const onStatSuccess = function (data) {
+  console.table(data.games);
+  output.displayStats(data);
+};
+
 const onError = function (response) {
   console.error(response);
 };
@@ -35,6 +40,7 @@ const onCreateSuccess = function (data) {
 
 module.exports = {
   onSuccess,
+  onStatSuccess,
   onError,
   onPatchSuccess,
   onCreateSuccess,
