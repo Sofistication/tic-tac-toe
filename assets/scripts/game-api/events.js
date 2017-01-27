@@ -1,7 +1,8 @@
 'use strict';
 
-const api = require('./api.js');
-const ui = require('./ui.js');
+const api = require('./api');
+const ui = require('./ui');
+const store = require('../store')
 
 // attach getFormFields globally
 
@@ -30,11 +31,11 @@ const onGetGames = function (event) {
 
 };
 
-const onPatchGame = function (event) {
+const onUpdateGame = function (event) {
   event.preventDefault();
 
   let data = getFormFields(event.target);
-  api.patch(data.game.id, data)
+  api.update(data.game.id, data)
     .then(ui.onPatchSuccess)
     .catch(ui.onError);
 };
@@ -42,14 +43,17 @@ const onPatchGame = function (event) {
 const onCreateGame = function (event) {
   event.preventDefault();
 
-  let data = getFormFields(event.target);
-  api.post(data)
+  api.create()
+    .then((response) => {
+      store.game = response.game;
+      return store.game;
+    })
     .then(ui.onCreateSuccess)
     .catch(ui.onError);
 };
 
 module.exports = {
   onGetGames,
-  onPatchGame,
+  onUpdateGame,
   onCreateGame,
 };

@@ -20,4 +20,5 @@ $(() => {
     $('#newGame').on('click', events.newGame);
     authEvents.addHandlers();
     $('#game-search').on('submit', gameEvents.onGetGames);
+    $('#newGame').on('click', gameEvents.onCreateGame);
 });

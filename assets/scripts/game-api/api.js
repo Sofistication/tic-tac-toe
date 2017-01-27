@@ -33,7 +33,7 @@ const show = function (id) {
   });
 };
 
-const patch = function (id, data) {
+const update = function (id, data) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + id,
     method: 'PATCH',
@@ -44,20 +44,19 @@ const patch = function (id, data) {
   });
 };
 
-const post = function (data) {
+const create = function () {
   return $.ajax({
     url: config.apiOrigin + '/games/',
     method: 'POST',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: data,
   });
 };
 
 module.exports = {
   index,
   show,
-  patch,
-  post,
+  update,
+  create,
 };
