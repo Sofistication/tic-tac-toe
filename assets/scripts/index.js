@@ -4,6 +4,7 @@ const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
 const events = require('./app/events');
 const authEvents = require('./auth/events');
+const gameEvents = require('./game-api/events');
 
 $(() => {
   setAPIOrigin(location, config);
@@ -18,4 +19,5 @@ require('./example');
 $(() => {
     $('#newGame').on('click', events.newGame);
     authEvents.addHandlers();
+    $('#game-search').on('submit', gameEvents.onGetGames);
 });
