@@ -3,22 +3,25 @@
 const states = require('./states');
 const ui = require('../app/ui');
 const api = require('../game-api/api');
-const store = require('../store');
+// const store = require('../store');
 
 // TODO newGame() should return an object containing winner and loser
 // TODO create makeMove() to handle moves
 
-function Game (board) {
+function Game (board, id/*, player_x, player_o*/) {
   this.board = board;
-  this.currentPlayer = 'X';
+  this.currentPlayer = 'x';
+  this.id = id;
+  // this.player_x = player_x;
+  // this.player_o = player_o;
 }
 
 Game.prototype.changeTurn = function (activePlayer) {
   // console.log('before ', this.currentPlayer);
-  if (activePlayer === 'X') {
-    this.currentPlayer = 'O';
+  if (activePlayer === 'x') {
+    this.currentPlayer = 'o';
   } else {
-    this.currentPlayer = 'X';
+    this.currentPlayer = 'x';
   }
   // console.log('after ', this.currentPlayer);
 };
@@ -39,20 +42,20 @@ Game.prototype.checkTieState = function (board) {
 
 Game.prototype.endGame = function () {
   this.board = ['', '', '', '', '', '', '', '', ''];
-  this.currentPlayer = 'X';
+  this.currentPlayer = 'x';
 
   $('#gameBoard').off('click');
   $('#mainMenu').show();
 };
 
-Game.prototype.updateRemote = function (i, player, gameOver, gameId) {
+Game.prototype.updateRemote = function (i, player, gameOver) {
   let data = {
     index: i,
     value: player,
     over: gameOver
   };
 
-  api.update(gameId, data)
+  api.update(this.id, data)
     .then(ui.onSuccess)
     .catch(ui.onError);
 };

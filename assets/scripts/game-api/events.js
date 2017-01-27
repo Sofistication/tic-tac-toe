@@ -53,6 +53,6 @@ const onCreateGame = function (event) {
 
 module.exports = {
   onGetGames,
-  onUpdateGame,
+  // onUpdateGame,
   onCreateGame,
 };
