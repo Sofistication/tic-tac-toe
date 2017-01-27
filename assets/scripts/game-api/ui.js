@@ -19,7 +19,7 @@ const onError = function (response) {
 };
 
 const onPatchSuccess = function () {
-  console.log('Book was successfully patched!');
+  console.log('Game was successfully patched!');
   utils.clearInput('#edit-game');
 };
 
