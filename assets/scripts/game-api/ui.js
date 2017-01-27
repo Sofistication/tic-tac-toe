@@ -4,12 +4,15 @@ const utils = require('../utils');
 const handlers = require('../game/handlers');
 const engine = require('../game/engine');
 const store = require('../store');
+const output = require('../app/ui');
 
 const onSuccess = function (data) {
   if (data.game) {
     console.log(data.game);
+    output.displayResult(data);
   } else {
     console.table(data.games);
+    output.displayResults(data);
   }
 
   utils.clearInput('#game-search');

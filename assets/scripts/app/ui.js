@@ -29,11 +29,31 @@ const displayAction = function (action, player, tile) {
   $('#chat').append(html);
 };
 
-const displayResults = function () {
+const displayResults = function (data) {
+  let html = '<table class="result-table"><tr><th>Game ID</th><th>Finished?</th></tr>';
+  for (let i = 0; i < data.games.length; i++) {
+    html += '<tr><td>' + data.games[i].id + '</td><td>' + data.games[i].over + '</td></tr>';
+  }
+  html += '</table>';
 
+  $('#chat').append(html);
+};
+
+const displayResult = function (data) {
+  let html = '<p class="search-result">Game with ID ' + data.game.id + 'was ';
+  if (data.game.over) {
+    html += 'completed! The final board was ' + data.game.cells;
+  } else {
+    html += 'not completed! It\'s board state is ' + data.game.cells;
+  }
+
+  html += '</p>';
+
+  $('chat').append(html);
 };
 
 module.exports = {
   displayAction,
   displayResults,
+  displayResult,
 };
