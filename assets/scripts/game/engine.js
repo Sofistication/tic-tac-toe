@@ -45,6 +45,18 @@ Game.prototype.endGame = function () {
   $('#mainMenu').show();
 };
 
+Game.prototype.updateRemote = function (i, player, gameOver, gameId) {
+  let data = {
+    index: i,
+    value: player,
+    over: gameOver
+  };
+
+  api.update(gameId, data)
+    .then(ui.onSuccess)
+    .catch(ui.onError);
+};
+
 Game.prototype.makeMove = function (event) {
 
   let index = event.target.id;
@@ -63,12 +75,15 @@ Game.prototype.makeMove = function (event) {
     if (win) {
       console.log(`${this.currentPlayer} wins!`);
       ui.displayAction('win', this.currentPlayer);
+      this.updateRemote(index, this.currentPlayer, true, this.id);
       this.endGame();
     } else if (this.checkTieState(this.board)) {
       console.log('Cat\'s Game!');
       ui.displayAction('tie');
+      this.updateRemote(index, this.currentPlayer, true, this.id);
       this.endGame();
     } else { //if game is still going, change turn
+      this.updateRemote(index, this.currentPlayer, false, this.id);
       this.changeTurn(this.currentPlayer);
       // console.log(this.currentPlayer);
     }
