@@ -3,16 +3,15 @@
 const utils = require('../utils');
 
 const onSuccess = function (data) {
+  console.log(data);
   // debugger;
-  if (data.book) {
-    console.log(data.book);
-    utils.displayTable(data.book);
+  if (data.game) {
+    console.log(data.game);
   } else {
-    console.table(data.books);
-    utils.displayTable(data.books);
+    console.table(data.games);
   }
 
-  utils.clearInput('#book-search');
+  utils.clearInput('#game-search');
 };
 
 const onError = function (response) {
@@ -21,12 +20,12 @@ const onError = function (response) {
 
 const onPatchSuccess = function () {
   console.log('Book was successfully patched!');
-  utils.clearInput('#edit-book');
+  utils.clearInput('#edit-game');
 };
 
 const onCreateSuccess = function (data) {
-  console.log(data.book);
-  utils.clearInput('#create-book');
+  console.log(data.game);
+  utils.clearInput('#create-game');
 };
 
 module.exports = {
