@@ -1,8 +1,9 @@
 'use strict';
 
 const engine = require('../game/engine');
-const gameBoard = ['', '', '', '', '', '', '', '', ''];
-const game = new engine.Game(gameBoard);
+const store = require('../store');
+// const gameBoard = ['', '', '', '', '', '', '', '', ''];
+const game = new engine.Game(store.game.cells, store.game.id);
 
 // need to bind `this` for certain methods
 const bindMakeMove = game.makeMove.bind(game);
@@ -19,7 +20,7 @@ const drawBoard = function () {
   const board = $('#gameBoard');
 
   for (let i = 0; i < game.board.length; i++) {
-    board.append('<div class="game-tile" id="' + i + '"></div>');
+    board.append('<div class="game-tile" id="' + i + '">"' + game.board[i] + '"</div>');
   }
 
   $('#mainMenu').hide();
