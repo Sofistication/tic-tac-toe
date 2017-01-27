@@ -29,6 +29,11 @@ const displayAction = function (action, player, tile) {
   $('#chat').append(html);
 };
 
+const displayResults = function () {
+
+};
+
 module.exports = {
   displayAction,
+  displayResults,
 };

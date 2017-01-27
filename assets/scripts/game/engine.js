@@ -3,7 +3,6 @@
 const states = require('./states');
 const ui = require('../app/ui');
 const api = require('../game-api/api');
-// const store = require('../store');
 
 // TODO newGame() should return an object containing winner and loser
 // TODO create makeMove() to handle moves
@@ -12,21 +11,18 @@ function Game (board, id/*, player_x, player_o*/) {
   this.board = board;
   this.currentPlayer = 'x';
   this.id = id;
-  // this.player_x = player_x;
-  // this.player_o = player_o;
 }
 
 Game.prototype.changeTurn = function (activePlayer) {
-  // console.log('before ', this.currentPlayer);
   if (activePlayer === 'x') {
     this.currentPlayer = 'o';
   } else {
     this.currentPlayer = 'x';
   }
-  // console.log('after ', this.currentPlayer);
 };
 
 Game.prototype.checkWinState = function (board, piece) {
+
   // this could all be done in the return but this reads easier
   let horizontal = states.checkHorizontalStates(board, piece);
   let vertical = states.checkVerticalStates(board, piece);
@@ -52,7 +48,7 @@ Game.prototype.updateRemote = function (i, player, gameOver) {
   let data = {
     index: i,
     value: player,
-    over: gameOver
+    over: gameOver,
   };
 
   api.update(this.id, data)
@@ -88,51 +84,12 @@ Game.prototype.makeMove = function (event) {
     } else { //if game is still going, change turn
       this.updateRemote(index, this.currentPlayer, false, this.id);
       this.changeTurn(this.currentPlayer);
-      // console.log(this.currentPlayer);
     }
   } else {
     console.log('Invalid move!');
     ui.displayAction('invalid');
   }
- };
-
-
-// const newGame = function (playerOne, playerTwo) {
-//
-//   // define game board, starting player and variable for game loop
-//   let gameBoard = new Array(9);
-//   let playerOneTurn = true;
-//   let gameOver = false;
-//   let currentPlayer = {};
-//
-//   //enter game loop
-//   while (!gameOver) {
-//     // play game
-//
-//     // set current player based on whose turn it is
-//     if (playerOneTurn) {
-//       currentPlayer = playerOne;
-//     } else {
-//       currentPlayer = playerTwo;
-//     }
-//
-//     console.log(gameBoard);
-//     console.log(`${currentPlayer.name}, it is your turn! Pick a square to play.`);
-//
-//     // move loop, create tile handlers here
-//
-//     //check for winner
-//     if (states.winStateCheck(gameBoard, currentPlayer)) {
-//       console.log(`${currentPlayer.name} wins!`);
-//       gameOver = true;
-//     } else if (states.tieStateCheck(gameBoard, currentPlayer)) {
-//       console.log('Cat\'s game!');
-//       gameOver = true;
-//     } else {
-//       playerOneTurn = !playerOneTurn;
-//     }
-//   }
-// };
+};
 
 module.exports = {
   Game,

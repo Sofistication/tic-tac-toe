@@ -3,20 +3,18 @@
 const api = require('./api');
 const ui = require('./ui');
 const store = require('../store');
-// const handlers = require('../game/handlers');
-// const engine = require('../game/engine');
 
 // attach getFormFields globally
 
 // const getFormFields = require('expose?getFormFields!./lib/get-form-fields.js');
-const getFormFields = require('../../../lib/get-form-fields.js');
+// const getFormFields = require('../../../lib/get-form-fields.js');
 
 // get in the habit of naming your handlers, it eases debugging.
 //
 // also, follow a convention for handlers. here, I name my handler
 // beginning with 'on' to denote that it is done when the GET /games
 // button is clicked
-const onGetGames = function(event) {
+const onGetGames = function (event) {
   event.preventDefault();
   console.log('here');
 
@@ -41,14 +39,12 @@ const onGetGames = function(event) {
 //     .catch(ui.onError);
 // };
 
-const onCreateGame = function(event) {
+const onCreateGame = function (event) {
   event.preventDefault();
 
   api.create()
     .then((response) => {
       store.game = response.game;
-      // const game = new engine.Game(store.game.cells, store.game.id);
-      // handlers.drawBoard(game);
       return store.game;
     })
     .then(ui.onCreateSuccess)
@@ -57,6 +53,5 @@ const onCreateGame = function(event) {
 
 module.exports = {
   onGetGames,
-  // onUpdateGame,
   onCreateGame,
 };

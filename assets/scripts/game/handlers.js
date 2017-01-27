@@ -13,6 +13,7 @@ const initGame = function (bindMakeMove) {
 };
 
 const drawBoard = function (game) {
+
   // need to bind `this` for certain methods
   const bindMakeMove = game.makeMove.bind(game);
 
@@ -20,10 +21,10 @@ const drawBoard = function (game) {
   $('#gameBoard').remove();
 
   $('#board-container').prepend('<div class="game-board" id="gameBoard"></div>');
-  const board = $('#gameBoard');
+  const $board = $('#gameBoard');
 
   for (let i = 0; i < game.board.length; i++) {
-    board.append('<div class="game-tile" id="' + i + '">' + game.board[i] + '</div>');
+    $board.append('<div class="game-tile" id="' + i + '">' + game.board[i] + '</div>');
   }
 
   $('#mainMenu').hide();

@@ -9,7 +9,7 @@ const index = function (over) {
       url: config.apiOrigin + '/games?=over',
       method: 'GET',
       headers: {
-        Authorization: `Token token=${store.user.token}`
+        Authorization: `Token token=${store.user.token}`,
       },
     });
   } else {
@@ -17,7 +17,7 @@ const index = function (over) {
       url: config.apiOrigin + '/games',
       method: 'GET',
       headers: {
-        Authorization: `Token token=${store.user.token}`
+        Authorization: `Token token=${store.user.token}`,
       },
     });
   }
@@ -28,7 +28,7 @@ const show = function (id) {
     url: config.apiOrigin + '/games/' + id,
     method: 'GET',
     headers: {
-      Authorization: `Token token=${store.user.token}`
+      Authorization: `Token token=${store.user.token}`,
     },
   });
 };
@@ -38,17 +38,17 @@ const update = function (id, data) {
     url: config.apiOrigin + '/games/' + id,
     method: 'PATCH',
     headers: {
-      Authorization: `Token token=${store.user.token}`
+      Authorization: `Token token=${store.user.token}`,
     },
     data: {
-      "game": {
-        "cell": {
-          "index": data.index,
-          "value": data.value
+      game: {
+        cell: {
+          index: data.index,
+          value: data.value,
         },
-        "over": data.over
-      }
-    }
+        over: data.over,
+      },
+    },
   });
 };
 
@@ -57,7 +57,7 @@ const create = function () {
     url: config.apiOrigin + '/games/',
     method: 'POST',
     headers: {
-      Authorization: `Token token=${store.user.token}`
+      Authorization: `Token token=${store.user.token}`,
     },
   });
 };

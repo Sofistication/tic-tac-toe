@@ -26,10 +26,6 @@ const onSignIn = function (event) {
       return store.user;
     })
     .then(ui.success)
-    // .then(() => {
-    //   $('.initial-bar').hide();
-    //   $('.second-bar').show();
-    // })
     .catch(ui.failure)
     ;
 };

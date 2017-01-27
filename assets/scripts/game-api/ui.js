@@ -6,8 +6,6 @@ const engine = require('../game/engine');
 const store = require('../store');
 
 const onSuccess = function (data) {
-  console.log(data);
-  // debugger;
   if (data.game) {
     console.log(data.game);
   } else {
