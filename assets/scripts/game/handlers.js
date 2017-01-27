@@ -1,18 +1,21 @@
 'use strict';
 
-const engine = require('../game/engine');
-const store = require('../store');
+// const engine = require('../game/engine');
+// const store = require('../store');
 // const gameBoard = ['', '', '', '', '', '', '', '', ''];
-const game = new engine.Game(store.game.cells, store.game.id);
+// const game = new engine.Game(store.game.cells, store.game.id);
 
-// need to bind `this` for certain methods
-const bindMakeMove = game.makeMove.bind(game);
+// // need to bind `this` for certain methods
+// const bindMakeMove = game.makeMove.bind(game);
 
-const initGame = function () {
+const initGame = function (bindMakeMove) {
   $('#gameBoard').on('click', bindMakeMove);
 };
 
-const drawBoard = function () {
+const drawBoard = function (game) {
+  // need to bind `this` for certain methods
+  const bindMakeMove = game.makeMove.bind(game);
+
   // $('#board-container').html('');
   $('#gameBoard').remove();
 
@@ -24,7 +27,7 @@ const drawBoard = function () {
   }
 
   $('#mainMenu').hide();
-  initGame();
+  initGame(bindMakeMove);
 };
 
 module.exports = {

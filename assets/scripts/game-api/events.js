@@ -14,7 +14,7 @@ const getFormFields = require('../../../lib/get-form-fields.js');
 // also, follow a convention for handlers. here, I name my handler
 // beginning with 'on' to denote that it is done when the GET /games
 // button is clicked
-const onGetGames = function (event) {
+const onGetGames = function(event) {
   event.preventDefault();
   console.log('here');
 
@@ -39,7 +39,7 @@ const onGetGames = function (event) {
 //     .catch(ui.onError);
 // };
 
-const onCreateGame = function (event) {
+const onCreateGame = function(event) {
   event.preventDefault();
 
   api.create()
