@@ -12,6 +12,16 @@ const signUpSuccess = (data) => {
   console.log(data);
 };
 
+const signOutSuccess = (data) => {
+  $('#signOutModal').modal('hide');
+  console.log(data);
+};
+
+const changePassSuccess = (data) => {
+  $('#changePassModal').modal('hide');
+  console.log(data);
+};
+
 const failure = (error) => {
   console.error(error);
 };
@@ -20,4 +30,6 @@ module.exports = {
   failure,
   signInSuccess,
   signUpSuccess,
+  signOutSuccess,
+  changePassSuccess,
 };
