@@ -1,6 +1,9 @@
 'use strict';
 
 const utils = require('../utils');
+const handlers = require('../game/handlers');
+const engine = require('../game/engine');
+const store = require('../store');
 
 const onSuccess = function (data) {
   console.log(data);
@@ -25,7 +28,8 @@ const onPatchSuccess = function () {
 
 const onCreateSuccess = function (data) {
   console.log(data.game);
-  utils.clearInput('#create-game');
+  const game = new engine.Game(store.game.cells, store.game.id);
+  handlers.drawBoard(game);
 };
 
 module.exports = {

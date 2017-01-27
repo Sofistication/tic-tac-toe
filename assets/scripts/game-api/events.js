@@ -3,6 +3,8 @@
 const api = require('./api');
 const ui = require('./ui');
 const store = require('../store');
+// const handlers = require('../game/handlers');
+// const engine = require('../game/engine');
 
 // attach getFormFields globally
 
@@ -45,6 +47,8 @@ const onCreateGame = function(event) {
   api.create()
     .then((response) => {
       store.game = response.game;
+      // const game = new engine.Game(store.game.cells, store.game.id);
+      // handlers.drawBoard(game);
       return store.game;
     })
     .then(ui.onCreateSuccess)
