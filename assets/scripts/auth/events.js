@@ -13,7 +13,7 @@ const onSignUp = function (event) {
   let data = getFormFields(event.target);
   api.signUp(data)
     .then(ui.signUpSuccess)
-    .catch(ui.failure)
+    .catch(ui.signUpFailure)
     ;
 };
 
@@ -26,7 +26,7 @@ const onSignIn = function (event) {
       return store.user;
     })
     .then(ui.signInSuccess)
-    .catch(ui.failure)
+    .catch(ui.signInFailure)
     ;
 };
 
@@ -35,7 +35,7 @@ const onChangePass = function (event) {
   let data = getFormFields(event.target);
   api.changePass(data)
     .then(ui.changePassSuccess)
-    .catch(ui.failure)
+    .catch(ui.changePassFailure)
     ;
 };
 
@@ -51,7 +51,7 @@ const onSignOut = function (event) {
     //   $('.second-bar').hide();
     //   $('.initial-bar').show();
     // })
-    .catch(ui.failure)
+    .catch(ui.signOutFailure)
     ;
 };
 
