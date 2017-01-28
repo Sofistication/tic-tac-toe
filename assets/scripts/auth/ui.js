@@ -29,7 +29,7 @@ const changePassSuccess = (data) => {
 };
 
 const failure = (error) => {
-  console.error(error);
+  console.error(error.status);
 };
 
 module.exports = {
