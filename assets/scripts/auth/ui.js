@@ -29,6 +29,7 @@ const changePassSuccess = (data) => {
 };
 
 const failure = (error) => {
+  utils.addErrorMessage('#sign-in', error.status);
   console.error(error.status);
 };
 
