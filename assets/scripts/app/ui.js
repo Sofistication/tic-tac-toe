@@ -10,13 +10,19 @@ const displayAction = function (action, player, tile) {
       html += `${player} wins the game!`;
       break;
     case 'tie':
-      html += 'Cat\'s Game!';
+      html += 'Morty\'s Game!';
       break;
     case 'play':
       html += `${player} plays on space ${tile}`;
       break;
     case 'invalid':
       html += 'Invalid move!';
+      break;
+    case 'user':
+      html += 'Thanks for joining, Rick! Please sign in.';
+      break;
+    case 'login':
+      html += 'Wubba la dub dub welcome to Tiny Rick Tac Toe!';
       break;
     case 'new':
       html += 'Starting new game!';
@@ -34,6 +40,7 @@ const displayResults = function (data) {
   for (let i = 0; i < data.games.length; i++) {
     html += '<tr><td>' + data.games[i].id + '</td><td>' + data.games[i].over + '</td></tr>';
   }
+
   html += '</table>';
 
   $('#chat').append(html);
@@ -60,9 +67,24 @@ const displayStats = function (data) {
       count++;
     }
   }
+
   html += count + ' were finished.';
 
   $('#chat').append(html);
+};
+
+const mainDisplay = function () {
+  $('.second-bar').removeClass('hidden');
+  $('#mainMenu').removeClass('hidden');
+  $('.second-bar').show();
+  $('#mainMenu').show();
+  $('.initial-bar').hide();
+};
+
+const openingDisplay = function () {
+  $('.second-bar').hide();
+  $('#mainMenu').hide();
+  $('.initial-bar').show();
 };
 
 module.exports = {
@@ -70,4 +92,6 @@ module.exports = {
   displayResults,
   displayResult,
   displayStats,
+  mainDisplay,
+  openingDisplay,
 };

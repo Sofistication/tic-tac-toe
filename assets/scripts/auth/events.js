@@ -47,10 +47,6 @@ const onSignOut = function (event) {
       return store;
     })
     .then(ui.signOutSuccess)
-    // .then(() => {
-    //   $('.second-bar').hide();
-    //   $('.initial-bar').show();
-    // })
     .catch(ui.signOutFailure)
     ;
 };
