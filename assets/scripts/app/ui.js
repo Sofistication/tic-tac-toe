@@ -82,6 +82,8 @@ const mainDisplay = function () {
 };
 
 const openingDisplay = function () {
+  $('#chat').html('<p class="game-message">Come on Morty! W-w-we\'ve gotta, we gotta beat Tiny Rick at Tic Tac Toe, Morty!</p>');
+  $('#board-container').html('');
   $('.second-bar').hide();
   $('#mainMenu').hide();
   $('.initial-bar').show();
