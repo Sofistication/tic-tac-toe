@@ -1,0 +1,13 @@
+$white: #fff;
+$black: #000;
+$background: #6b00b3;
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function fade($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+$chat-background: rgba($white, .15);

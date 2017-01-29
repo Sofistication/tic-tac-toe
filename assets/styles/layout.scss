@@ -1,25 +1,38 @@
-$tile-side: 100px;
+@import 'colors';
+
+$tile-side: 200px;
 $board-side: (3 * $tile-side) + 20px;
 $chat-width: 25%;
-$chat-background: rgba(255, 255, 255, .7);
 
 body {
-  background: black;
-  color: white;
+  background: $background;
+  color: $white;
   padding: 0;
 }
 
+.modal {
+  color: $black;
+}
+
+.auth-actions {
+  background: shade($background, 30);
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
 .game-board {
-  border: 3px solid black;
+  border: 3px solid $black;
   height: $board-side;
+  margin: auto;
   width: $board-side;
 }
 
 .game-tile {
-  border: 2px solid black;
+  border: 2px solid $black;
   box-sizing: border-box;
   float: left;
   height: $tile-side;
+  margin: auto;
   width: $tile-side;
 }
 
@@ -28,14 +41,17 @@ header {
   text-align: center;
 }
 
-.chat {
+aside {
   background: $chat-background;
-  border: 2px solid black;
   box-sizing: border-box;
   margin: 0;
   max-width: $chat-width;
 }
 
 .game {
+  margin: auto;
+}
+
+.menu-item {
   margin: auto;
 }
