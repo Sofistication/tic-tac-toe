@@ -3,9 +3,7 @@
 const states = require('./states');
 const ui = require('../app/ui');
 const api = require('../game-api/api');
-
-// TODO newGame() should return an object containing winner and loser
-// TODO create makeMove() to handle moves
+const utils = require('../utils');
 
 function Game (board, id/*, player_x, player_o*/) {
   this.board = board;
@@ -63,7 +61,8 @@ Game.prototype.makeMove = function (event) {
   //check for valid move
   if (this.board[index] === '') {
     this.board[index] = this.currentPlayer;
-    $(event.target).append(this.currentPlayer);
+    // $(event.target).append(this.currentPlayer);
+    utils.insertImg(event.target, this.currentPlayer);
 
     // display move in chat log
     ui.displayAction('play', this.currentPlayer, index);

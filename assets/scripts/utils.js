@@ -21,8 +21,21 @@ const addErrorMessage = function (element, status) {
   $(element).append(html);
 };
 
+const insertImg = function (target, piece) {
+  let html = '<img src="./assets/img/';
+  if (piece === 'x') {
+    html += 'rick.png';
+  } else if (piece === 'o') {
+    html += 'tiny_rick.jpg';
+  }
+  html += '">';
+
+  $(target).append(html);
+};
+
 module.exports = {
   clearInput,
   clearModalInput,
   addErrorMessage,
+  insertImg,
 };

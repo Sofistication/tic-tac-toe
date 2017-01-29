@@ -48,5 +48,14 @@ aside {
 }
 
 .menu-item {
+  display: block;
   margin: auto;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-height: $tile-side - 10;
+  max-width: $tile-side - 10;
+  text-align: center;
 }
