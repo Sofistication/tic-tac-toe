@@ -67,17 +67,17 @@ Game.prototype.makeMove = function (event) {
 
     // display move in chat log
     ui.displayAction('play', this.currentPlayer, index);
-    console.log(index);
+    // console.log(index);
 
     // after every valid move, check for win or tie
     let win = this.checkWinState(this.board, this.currentPlayer);
     if (win) {
-      console.log(`${this.currentPlayer} wins!`);
+      // console.log(`${this.currentPlayer} wins!`);
       ui.displayAction('win', this.currentPlayer);
       this.updateRemote(index, this.currentPlayer, true, this.id);
       this.endGame();
     } else if (this.checkTieState(this.board)) {
-      console.log('Cat\'s Game!');
+      // console.log('Cat\'s Game!');
       ui.displayAction('tie');
       this.updateRemote(index, this.currentPlayer, true, this.id);
       this.endGame();
@@ -86,7 +86,7 @@ Game.prototype.makeMove = function (event) {
       this.changeTurn(this.currentPlayer);
     }
   } else {
-    console.log('Invalid move!');
+    // console.log('Invalid move!');
     ui.displayAction('invalid');
   }
 };

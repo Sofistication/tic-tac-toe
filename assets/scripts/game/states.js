@@ -56,10 +56,12 @@ const checkDiagonalStates = function (gameBoard, piece) {
   // iterate over game board and fill column arrays
   // TODO this is hardcoded and bad and there's probably a better way
   for (let i = 0; i < gameBoard.length; i++) {
-    if (i === 0 || i === 4 || i === 8) {
+    if (i === 4) {
       firstDiagonal.push(gameBoard[i]);
-
-    } else if (i === 2 || i === 4 || i === 6) {
+      secondDiagonal.push(gameBoard[i]);
+    } else if (i === 0 || i === 8) {
+      firstDiagonal.push(gameBoard[i]);
+    } else if (i === 2 || i === 6) {
       secondDiagonal.push(gameBoard[i]);
     }
   }
