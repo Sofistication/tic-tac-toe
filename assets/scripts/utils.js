@@ -22,11 +22,11 @@ const addErrorMessage = function (element, status) {
 };
 
 const insertImg = function (target, piece) {
-  let html = '<img src="./assets/img/';
+  let html = '<img src="';
   if (piece === 'x') {
-    html += 'rick.png';
+    html += 'http://i.imgur.com/nQatzBf.png';
   } else if (piece === 'o') {
-    html += 'tiny_rick.jpg';
+    html += 'http://i.imgur.com/T4NrURT.jpg';
   }
   html += '">';
 
