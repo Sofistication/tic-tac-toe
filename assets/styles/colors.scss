@@ -1,6 +1,7 @@
 $white: #fff;
 $black: #000;
 $background: #6b00b3;
+$weird-green: #0c0;
 
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
@@ -10,4 +11,16 @@ $background: #6b00b3;
   @return mix(white, $color, $percentage);
 }
 
-$chat-background: rgba($white, .15);
+$chat-background: rgba($white, .05);
+
+h1 {
+  color: $weird-green;
+}
+
+.modal {
+  color: $black;
+}
+
+.game-message {
+  color: shade($weird-green, 15);
+}

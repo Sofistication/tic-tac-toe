@@ -10,10 +10,6 @@ body {
   padding: 0;
 }
 
-.modal {
-  color: $black;
-}
-
 .auth-actions {
   background: shade($background, 30);
   margin-bottom: 10px;
@@ -21,7 +17,6 @@ body {
 }
 
 .game-board {
-  border: 3px solid $black;
   height: $board-side;
   margin: auto;
   width: $board-side;
