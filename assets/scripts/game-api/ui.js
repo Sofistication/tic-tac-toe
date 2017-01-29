@@ -8,10 +8,10 @@ const output = require('../app/ui');
 
 const onSuccess = function (data) {
   if (data.game) {
-    console.log(data.game);
+    // console.log(data.game);
     output.displayResult(data);
   } else {
-    console.table(data.games);
+    // console.table(data.games);
     output.displayResults(data);
   }
 
@@ -19,21 +19,21 @@ const onSuccess = function (data) {
 };
 
 const onStatSuccess = function (data) {
-  console.table(data.games);
+  // console.table(data.games);
   output.displayStats(data);
 };
 
-const onError = function (response) {
-  console.error(response);
+const onError = function (/*response*/) {
+  // console.error(response);
 };
 
 const onPatchSuccess = function () {
-  console.log('Game was successfully patched!');
+  // console.log('Game was successfully patched!');
   utils.clearInput('#edit-game');
 };
 
 const onCreateSuccess = function (data) {
-  console.log(data.game);
+  // console.log(data.game);
   const game = new engine.Game(store.game.cells, store.game.id);
   handlers.drawBoard(game);
 };
