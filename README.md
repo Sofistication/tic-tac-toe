@@ -1,7 +1,5 @@
 # Tic Tac Toe game
 
-## Wireframes
-
 ## Technologies used
 
 - html
