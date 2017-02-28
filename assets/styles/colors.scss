@@ -1,6 +1,8 @@
 $white: #fff;
 $black: #000;
-$background: #6b00b3;
+$background: #0277bd;
+$second-color: #7e57c2;
+$accent: #64dd17;
 $weird-green: #0c0;
 
 @function shade($color, $percentage) {
@@ -14,7 +16,7 @@ $weird-green: #0c0;
 $chat-background: rgba($white, .05);
 
 h1 {
-  color: $weird-green;
+  color: $accent;
 }
 
 .modal {
@@ -22,7 +24,7 @@ h1 {
 }
 
 .game-message {
-  color: shade($weird-green, 15);
+  color: $accent;
 }
 
 .form-group {
